@@ -21,6 +21,10 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/",(req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Credentials",true);
+  res.send("API is running...")
+});
 app.use("/customer", CustomerRouter);
 app.use("/product", ProductRouter);
 app.use("/cart", CartRouter);
